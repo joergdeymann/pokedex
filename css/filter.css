@@ -1,0 +1,101 @@
+.relative {
+    position: relative;
+}
+
+.pokemon-filter {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: -2px 2px 4px rgba(255, 255, 255, 0.3);
+    background-color: rgba(100, 255, 255, 0.1);
+    padding: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    
+    position: -webkit-sticky; /* Für Safari */
+    position: sticky;
+    top: 80px;
+    bottom: 0px;
+}
+
+.pokemon-filter h3 {
+    margin: 0px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.pokemon-filter h3:not(:first-child) {
+    margin-top: 16px;
+}
+
+.pokemon-filter input {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    outline: none;
+    border: 0;
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+    height: 24px;
+}
+
+.pokemon-filter input[type="checkbox"] {
+    accent-color: rgba(32, 48, 48, 0.9);
+}
+
+.brick {
+    width: 60px;
+    height: 20px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.9);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:visible;
+}
+
+.long-brick {
+    font-size: 12px;
+}
+
+.pokemon-filter .brick:hover {
+    filter: brightness(1.2);
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.pokemon-filter .types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.pokemon-filter .brick-active {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.pokemon-filter .order {
+    align-items: center;   
+}
+
+.brick-inactive::after {
+    content: url("../img/redcross.svg");
+    position: absolute;
+    margin-top: 2px;
+    color: red;
+}
+
+.Xpokemon-filter .brick-active {
+    transform: scale(1.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    overflow: overlay;
+}

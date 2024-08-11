@@ -1,0 +1,32 @@
+      <svg width="120" height="180" xmlns="http://www.w3.org/2000/svg">
+        <!-- Kopf -->
+        <circle cx="60" cy="54" r="40" stroke="black" stroke-width="2" fill="#ffcc99"/>
+        
+        <!-- Hals -->
+        <rect x="45" y="92" width="30" height="10" stroke="black" stroke-width="2" fill="#ffcc99"/>
+        
+        <!-- Körper -->
+        <rect x="10" y="100" width="100" height="60" rx="10" ry="10" stroke="black" stroke-width="2" fill="#99ccff"/>
+        
+        <!-- Hals -->
+        <rect x="46" y="80" width="28" height="30" fill="#ffcc99"/>
+
+        <!-- Schultern -->
+        <path d="M20 100 Q60 140 100 100" stroke="black" stroke-width="2" fill="#ffcc99"/>
+        
+        <!-- Augen -->
+        <circle cx="45" cy="45" r="5" stroke="black" stroke-width="1" fill="white"/>
+        <circle cx="75" cy="45" r="5" stroke="black" stroke-width="1" fill="white"/>
+        
+        <!-- Pupillen -->
+        <circle cx="45" cy="45" r="2" fill="black"/>
+        <circle cx="75" cy="45" r="2" fill="black"/>
+        
+        <!-- Nase -->
+        <!-- path d="M95 55 Q100 60 105 55" stroke="black" stroke-width="2" fill="none"/-->
+        <path d="M60 55 Q60 65 55 65" stroke="black" stroke-width="2" fill="none"/>
+        
+        <!-- Mund -->
+        <path d="M50 70 Q60 80 70 70" stroke="black" stroke-width="2" fill="none"/>
+
+      </svg>

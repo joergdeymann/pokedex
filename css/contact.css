@@ -1,0 +1,95 @@
+.contact-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    flex-direction: column;
+    gap: 16px;
+    flex-grow: 2;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.7);
+    width: 90%;
+	max-width: 1024px;
+
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 50%;
+}
+
+.contact-field:hover,input {
+    border-color: rgba(0,0,0,0.4);
+}
+
+.contact-field:focus,input:focus {
+    border-color: rgba(0,0,0,0.2);
+    /* border: 6px solid red !important; /* rgba(0,0,0,0.2); */
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    background-color: rgba(200, 255, 200, 0.8);
+    color: rgba(0,0,0,0.8);
+    outline: 0;
+}
+
+.contact-card textarea {
+    height: 15em;
+    resize: none;
+}
+
+@media (max-width:400px) {
+    .contact-card,.contact p {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact {
+        width: 100%;
+        align-items: center;
+    }
+}
+
+.msgok {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: rgba(0,128,0,0.5);
+    background-color: rgba(0,128,0,0.4);
+
+}
+
+.contact-container .head {
+    color: rgba(255,255,255,0.7);
+}
+
+.contact-card button {
+    width: 100px;
+    height: 30px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.9);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:visible;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.3);
+}
+    

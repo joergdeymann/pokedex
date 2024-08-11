@@ -1,0 +1,13 @@
+.movingCardLeft {
+    transform: 
+        translate(-100vw, -50vh)
+        rotate(720deg);
+    transition: 500ms ease-in-out;   
+}
+
+.movingCardRight {
+    transform: 
+        translate(+100vw, -50vh)
+        rotate(720deg);
+    transition: 500ms ease-in-out;   
+}

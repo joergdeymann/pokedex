@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pokemon Dex</title>
+        <link rel="icon" href="./img/pokeball.svg">
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="./global/style.css" />
+        <link rel="stylesheet" href="./css/header.css" />
+        <link rel="stylesheet" href="./css/footer.css" />
+        <link rel="stylesheet" href="./css/pokemon-liste.css" />
+        <link rel="stylesheet" href="./css/colors.css" />
+        <link rel="stylesheet" href="./css/filter.css" />
+        <link rel="stylesheet" href="./css/tab.css" />
+        <link rel="stylesheet" href="./css/maincard.css" />
+        <link rel="stylesheet" href="./css/loadScreen.css" />
+        <link rel="stylesheet" href="./css/progressbar.css" />
+        <link rel="stylesheet" href="./css/usermenu.css" />
+        <link rel="stylesheet" href="./css/media.css" />
+        <link rel="stylesheet" href="./css/animation.css" />
+
+        <script src="script.js"></script>
+        <script src="./js/fetch.js"></script>
+        <script src="./js/renderCards.js"></script>
+        <script src="./js/renderDeck.js"></script>
+        <script src="./js/renderSpecies.js"></script>
+        <script src="./js/renderStats.js"></script>
+        <script src="./js/renderAbilities.js"></script>        
+        <script src="./js/pokemonList.js"></script>
+        <script src="./js/renderMainCard.js"></script>
+        <script src="./js/events.js"></script>
+        <script src="./js/loadScreen.js"></script>
+        <script src="./js/loadPokemon.js"></script>
+        <script src="./js/tab.js"></script>
+        <script src="./js/pokemonFilter.js"></script>
+        <script src="./js/ownDeck.js"></script>
+        <script src="./js/renderEvo.js"></script>
+        <script src="./js/user.js"></script>
+        <script src="./js/stdio.js"></script>
+    </head>
+
+    <body onload="init()">
+        <header>
+            <div></div>
+            <div>
+                <img src="./img/pokeball.svg" />
+                <h1>Pokedex</h1>
+            </div>
+            <div>
+                <img src="./img/person.svg" alt="user" id="personal"   class="clickable"  onclick="userMenu()">
+                <img src="./img/threebars.svg" alt="menu" id="three-bars" class="three-bars" onclick="showMenu()">
+            </div>
+        </header>
+        <div id="usermenu" class="relative">
+            <div class="usermenu-container" onclick="userMenu()">
+                <form class="usermenu-content bg-dark" onclick="preventProcess(event)">
+                    <div id="msg" class="ok">If you don`t want to login right now, click out of the box, you can reach it always later over the user menu.</div>
+                    <input id="user" class="username" type="text" placeholder="user or profile" autocomplete="username">
+                    <input id="pw"   class="password" type="password" placeholder="password" autocomplete="new-password">
+                    <div>
+                        <button type="button" class="bg-ice" onclick="loginUser()">Login</button> 
+                        <button type="button" class="bg-ice" onclick="createUser()">Create</button> 
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="content">
+            <div id="maincard-container" class="maincard-container hide" onclick="closeMainCard(event)">
+                <div class="maincard" onclick="preventProcess(event)">
+                    <div class="maincard-pokemon" id="maincard-pokemon"><!-- Card as it is in Cardist -->
+                    </div>
+
+                    <div class="maincard-textarea"><!-- Text basesd Area -->
+                        <div class="tab-container">
+                            <div class="tab-headline-container">    
+                                <img onclick="tabScroll(+1)" src="./img/firearrow3left.svg">
+                                <div class="tab-headline-content">
+                                    <div id="tab-headline" class="tab-headline">
+                                        <div onclick="activateTab(this)">main</div>
+                                        <div onclick="activateTab(this)">abilities</div>
+                                        <div onclick="activateTab(this)">stats</div>
+                                        <div onclick="activateTab(this)">evo chain</div>
+                                        <div onclick="activateTab(this)" class="bg-ground">deck</div>
+                                    </div>
+                                </div>
+                                <img onclick="tabScroll(-1)" src="./img/firearrow3right.svg">
+                            </div>
+                            <div class="tab-content">
+                                <div id="tab-main"      class="absolute animation opacity tab hide"></div>
+                                <div id="tab-abilities" class="absolute animation opacity tab hide"></div>
+                                <div id="tab-stats"     class="absolute animation opacity tab hide"></div>
+                                <div id="tab-evo"       class="absolute animation opacity tab hide"></div>
+                                <div id="tab-deck"      class="absolute animation tab"></div>
+                            </div> 
+                            <div class="footer">
+                                <img onclick="previousPokemon()" class="clickable to-left"  src="./img/firearrow-left.svg">
+                                <img onclick="nextPokemon()" class="clickable to-right" src="./img/firearrow-right.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pokeball" class="maincard-container">
+                <div class="pokeball-container">
+                    <div id="load-stage">
+                        <div class="load-circle">
+                           <div id="load-rightcircle" class="load-rightcircle"></div>
+                           <div id="load-leftcircle"  class="load-leftcircle"></div>
+                           <div id="load-mask" class="load-mask"></div>
+                           <div class="load-innercircle"><img class="pokeball" src="./img/pokeballrotate.svg"></div>
+                        </div>
+                     </div>    
+
+                </div>
+            </div>
+
+            <div class="pokemon-container">
+                <div class="pokemon-liste" id="pokemon-liste"></div>
+                <br>
+                <div id="moreCards" onclick="loadMoreCards()" class="pointer brick bg-grass stat-brick">.. more</div><br>
+            </div>
+
+            <div class="relative relative-filter" id="relative-filter">
+                <div class="pokemon-filter" id="pokemon-filter">
+                    <h3>find</h3>
+                    <input type="text" id="input-pokemon" oninput="inputSelection()" />
+                    <h3>order &nbsp;<img class="h16 clickable" onclick="collapse('order')" src="./img/collapse.svg"></h3>
+                    <div id="order" class="types order">
+                        <div id="order-id"   onclick="setOrder(this)" class="pointer  brick bg-fire brick-active">number</div>
+                        <div id="order-name" onclick="setOrder(this)" class="pointer brick bg-grass">name</div>
+                        <div id="order-type" onclick="setOrder(this)" class="pointer brick bg-water">type</div>
+                    </div>
+                    <h3>select types  &nbsp;<img class="h16 clickable" onclick="collapse('pokemon-types')" src="./img/collapse.svg"></h3>
+                    <div class="types" id="pokemon-types">
+                        <div onclick="toggleTypeSelection(this,'all')" class="pointer brick bg-all">all</div>
+                        <div class="brick invisible"></div>
+                        <div onclick="toggleTypeSelection(this,'none')" class="pointer brick bg-none">none</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-fire">fire</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-grass">grass</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-water">water</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-bug">bug</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-flying">flying</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-poison">poison</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-normal">normal</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-ground">ground</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-fairy">fairy</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-electric">electric</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-psychic">psychic</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-rock">rock</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-ice">ice</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-ghost">ghost</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-dragon">dragon</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-dark">dark</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-fighting">fighting</div>
+                        <div onclick="toggleTypeSelection(this)" class="pointer brick bg-steel">steel</div>
+                    </div>
+
+                    <h3>own decks</h3>
+                    <div id="right-menu" class="tab-container">
+                        <div class="tab-headline">
+                            <div onclick="activateTab(this)" class="bg-ground">Deck 1</div>
+                            <div onclick="activateTab(this)">Deck 2</div>
+                            <div onclick="activateTab(this)">Deck 3</div>
+                        </div>
+                        <div class="tab-content">
+                            <div id="tab-deck0" class="absolute animation tab"></div>
+                            <div id="tab-deck1" class="absolute animation tab opacity hide"></div>
+                            <div id="tab-deck2" class="absolute animation tab opacity hide"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="contact.html">Kontakt</a>
+        </footer>
+    </body>
+</html>

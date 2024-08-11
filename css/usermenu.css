@@ -1,0 +1,52 @@
+.usermenu-container  {
+    position: fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.7);
+    z-index:1;
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+}
+
+.usermenu-content {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.95);
+    padding: 8px;
+    margin-top: -200px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+}
+
+.usermenu-content input {
+    background-color: rgba(0,0,0,8);
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.5);
+    margin: 2px;
+    font-size: 18px;
+    padding: 2px 8px;
+    color: rgba(255,255,255,0.8);
+}
+
+.usermenu-content .err {
+    color: red;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.usermenu-content div:last-of-type {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.3);
+}

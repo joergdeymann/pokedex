@@ -1,0 +1,79 @@
+#load-stage {
+   width: 350px;
+   height: 350px;
+   --background: #f2efef;
+   --background: linear-gradient(197deg, rgba(231, 255, 139, 1) 0%, rgba(142, 250, 5, 1) 75%);
+}
+
+.load-circle {
+   position: relative;
+   width: 250px;
+   height: 250px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 50%;
+   background: var(--background);
+   overflow: hidden;
+   border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.load-innercircle {
+   position: absolute;
+   background: #f2efef;
+   background: rgba(0, 0, 0, 0.3);
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 215px;
+   height: 215px;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0px 0px 60px rgba(38, 19, 217, 0.6);
+}
+
+.load-rightcircle,
+.load-leftcircle,
+.load-mask {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 50%;
+   height: 100%;
+   transform-origin: right center;
+}
+
+.load-circle-gradient {
+   background: rgb(65, 161, 255);
+   background: -moz-linear-gradient(197deg, rgba(65, 161, 255, 1) 0%, rgba(38, 19, 217, 0.7) 75%);
+   background: -webkit-linear-gradient(197deg, rgba(65, 161, 255, 1) 0%, rgba(38, 19, 217, 0.7) 75%);
+   background: linear-gradient(197deg, rgba(65, 161, 255, 1) 0%, rgba(38, 19, 217, 0.7) 75%);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#41a1ff", endColorstr="#2613d9", GradientType=1);
+}
+
+.load-rightcircle,
+.load-leftcircle {
+   background: #30a3bf;
+   background: rgba(38, 19, 217, 0.95);
+}
+
+.load-mask {
+   background: var(--background);
+   opacity: 0;
+   transition: 0s linear;
+}
+
+.load-rightcircle {
+   transform: rotate(180deg);
+}
+
+.load-leftcircle {
+   transform: rotate(180deg);
+}
+
+.load-innercircle .load-pokeball {
+   width: 200px;
+   height: 200px;
+}

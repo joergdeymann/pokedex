@@ -1,0 +1,25 @@
+.progress-container {
+    position: relative;   
+    width: 100%;
+    margin: 2px;
+    padding:1px;
+    box-shadow: 2px 2px 4px rgba(255,255,255,0.4);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 4px;
+}

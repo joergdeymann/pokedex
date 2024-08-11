@@ -1,0 +1,89 @@
+.mt16  {
+    margin-top: 16px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.space {
+    display: flex;
+    justify-content: space-between;
+}
+
+.clickable {
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+
+.clickable:hover {
+    filter: brightness(1.2);
+}
+
+.to-right:hover {
+    transform: translateX(20px);
+}
+
+.to-left:hover {
+    transform: translateX(-20px);
+}
+
+.hide {
+    display: none !important;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.block {
+    text-align: justify;
+}
+
+.gap16 {
+    gap: 16px;
+}
+
+.m8 {
+    margin: 8px;
+}
+
+.h16 {
+    height: 16px;
+}
+
+.pointer {
+    cursor:pointer;
+}
+
+.hover:hover  {
+    background-color: rgba(255,255,255,0.2);
+    transform: rotate(360deg);
+    transition:  2000ms linear;
+    transition-property: transform;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    top: 0px;
+    left:0px;
+}
+
+.err {
+    color: red;
+}
+
+.ok {
+    color: rgba(100,255,0,0.7);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}

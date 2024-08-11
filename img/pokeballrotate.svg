@@ -1,0 +1,44 @@
+<svg width="210" height="210" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 210">
+    <!-- Define shadow -->
+    <defs>
+      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+        <feOffset dx="5" dy="5" result="offsetblur"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.5"/>
+        </feComponentTransfer>
+        <feMerge>
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    
+    <g filter="url(#shadow)">
+        <circle cx="105" cy="105" r="90" fill="white" />
+    </g>    
+
+    <!-- Pokéball with shadow -->
+    <g>
+      <!-- Animation for rotation -->
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 105 105" to="360 105 105" dur="10s" repeatCount="indefinite"/>
+      
+      <!-- Upper semi-circle (red) -->
+      <path d="M 105 105 m -90 0 a 90 90 0 1 1 180 0" fill="red" />
+      
+      <!-- Lower semi-circle (white) -->
+      <path d="M 105 105 m -90 0 a 90 90 0 1 0 180 0" fill="white" />
+      
+      <!-- Black middle stripe -->
+      <rect x="15" y="95" width="180" height="20" fill="black" />
+      
+      <!-- Middle circle (white) -->
+      <circle cx="105" cy="105" r="20" fill="white" stroke="black" stroke-width="5" />
+      
+      <!-- Inner circle (black) -->
+      <circle cx="105" cy="105" r="10" fill="black" />
+    </g>
+
+    <!-- Reflection effect -->
+    <ellipse cx="135" cy="40" rx="40" ry="20" fill="white" opacity="0.3" transform="rotate(25, 105, 60)" />
+  </svg>

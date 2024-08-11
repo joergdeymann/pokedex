@@ -1,0 +1,109 @@
+
+@media screen and (max-width: 0.540px) {
+    .pokemon-filter {
+        position: absolute; 
+        transition: 1200ms ease-in-out;
+        top:0; 
+        right:0;
+        right: -100vw; 
+    }
+
+    .relative {
+        overflow-x:hidden;
+        width: 320px;
+        height: 600px;
+    }
+
+    .three-bars {
+        display: flex;
+    }
+}
+
+
+@media screen and (max-width: 540px) {
+    .relative-filter {
+        position: fixed;
+        transition: 200ms ease-in-out;
+        transition-property: transform; 
+        top:+80px;
+        transform:translateX(100vw);
+        align-items: center;
+
+        overflow:hidden;
+        background-color: #203030;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 300px;
+    }
+
+    .content {
+        overflow:hidden;
+        position: relative;
+
+    }
+
+    header {
+        z-index: 1;
+        justify-content: space-evenly;
+        gap:0;
+    }
+
+    .three-bars {
+        display: flex;
+    }
+
+}
+
+@media (max-height: 750px) {
+    .maincard {
+        max-height: 96vh;
+    }
+
+    .maincard-pokemon .card {
+        height: unset;
+    }
+
+    .maincard-pokemon .pokemon-image {
+        height: 100px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    #tab-evo {
+        align-items: flex-end;
+        padding:0;
+    }
+
+    #tab-evo .evo-container {
+        height: 50px;
+    }
+
+    #tab-stats  {
+        overflow-y: auto;
+    }
+
+    #tab-deck {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    #tab-deck .pokemon-card {
+        height: 100px;
+        width: 80px;
+    }
+
+    .pokemon-filter {
+        position: unset;
+        overflow:auto;
+    }
+
+    .pokemon-liste .card, 
+    .pokemon-card, 
+    .deck-card .card {
+        width: 130px;
+        height: 200px;
+    }
+}
+
